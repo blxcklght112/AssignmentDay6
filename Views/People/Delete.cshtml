@@ -1,0 +1,16 @@
+@model Day6.Models.PersonModel;
+
+@{
+    ViewData["Title"] = "Delete person";
+}
+
+<h1>Delete person</h1>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Are you want to delete?
+    </p>
+    
+    <input type="submit" value="Delete" />
+}

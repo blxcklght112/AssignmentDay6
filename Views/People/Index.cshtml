@@ -1,0 +1,74 @@
+@model IEnumerable<Day6.Models.PersonModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of People</h1>
+
+<p>
+    <a asp-action="Add">Add new person</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthPlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsGraduated)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelPerson => person.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelPerson => person.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelPerson => person.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelPerson => person.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelPerson => person.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelPerson => person.BirthPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelPerson => person.IsGraduated)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { personID = person.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { personID = person.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
